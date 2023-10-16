@@ -21,10 +21,13 @@ jobs:
       - name: Build Go Binary
         run: ./scripts/buildprod.sh
 
+      - name: Print GCP_CREDENTIALS secret
+        run: echo ${{ secrets.GCP_CREDENTIALS }}
+
       - name: 'Authenticate with Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+          credentials_json: ${{secrets.GCP_CREDENTIALS}}
           project_id: notely-402205
   
       - name: 'Set up Cloud SDK'
