@@ -23,7 +23,7 @@ func TestGetAPIKeyValid(t *testing.T) {
 func TestGetAPIKeyInvalid(t *testing.T) {
 	headers := http.Header{}
 	headers.Set("Authorization", "Bearer my-token")
-	expected := "b"
+	expected := ""
 	actual, err := auth.GetAPIKey(headers)
 	if err == nil {
 		t.Errorf("TestGetAPIKeyInvalid failed: expected error but got no error")
