@@ -9,7 +9,7 @@ import (
 
 func TestGetAPIKeyValid(t *testing.T) {
 	headers := http.Header{}
-	headers.Set("Authorization", "ApiKey my-api-keys")
+	headers.Set("Authorization", "ApiKey my-api-key")
 	expected := "my-api-key"
 	actual, err := auth.GetAPIKey(headers)
 	if err != nil {
@@ -23,7 +23,7 @@ func TestGetAPIKeyValid(t *testing.T) {
 func TestGetAPIKeyInvalid(t *testing.T) {
 	headers := http.Header{}
 	headers.Set("Authorization", "Bearer my-token")
-	expected := ""
+	expected := "b"
 	actual, err := auth.GetAPIKey(headers)
 	if err == nil {
 		t.Errorf("TestGetAPIKeyInvalid failed: expected error but got no error")
