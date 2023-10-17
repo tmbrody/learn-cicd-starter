@@ -31,7 +31,7 @@ jobs:
       - name: 'Authenticate with Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          credentials_json: GCP_CREDENTIALS
+          credentials_json: $GCP_CREDENTIALS
           project_id: notely-402205
   
       - name: 'Set up Cloud SDK'
